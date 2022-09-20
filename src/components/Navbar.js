@@ -51,7 +51,7 @@ export default function Navbar() {
                             <>
                                 <Link to="/orders"><button className='nav-btn mx-2'>Orders</button></Link>
                                 <Link to="/cart"><button className='nav-btn mx-2'>Cart</button></Link>
-                                <Link to="/profile"><button className='nav-btn mx-2'>Profile</button></Link>
+                                <Link to="/account"><button className='nav-btn mx-2'>Account</button></Link>
                                 <Link to="/logout"><button className='nav-btn mx-2'>Logout</button></Link>
                             </>
                         :

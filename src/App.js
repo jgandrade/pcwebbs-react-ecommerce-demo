@@ -9,6 +9,8 @@ import Logout from "./pages/Logout";
 import Cart from "./pages/Cart";
 import Orders from "./pages/Orders";
 import { UserProvider } from "./contexts/userContext";
+import Account from "./pages/Account";
+import Profile from "./pages/Profile";
 
 function App() {
   const [user, setUser] = useState({
@@ -59,6 +61,8 @@ function App() {
               <Route exact path="/register" element={<Register />} />
               <Route exact path="/cart" element={<Cart />} />
               <Route exact path="/orders" element={<Orders />} />
+              <Route exact path="/account" element={<Account />} />
+              <Route exact path="/profile" element={<Profile />} />
               <Route path="*" element={<Error />} />
             </Routes>
           </div>

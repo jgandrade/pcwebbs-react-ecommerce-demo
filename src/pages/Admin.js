@@ -12,6 +12,7 @@ import Form from 'react-bootstrap/Form';
 
 export default function Admin() {
     const [products, setProducts] = useState([]);
+    const [users, setUsers] = useState([]);
     const [show, setShow] = useState(false);
     const [viewProduct, setViewProduct] = useState({
         _id: 0,
@@ -55,8 +56,19 @@ export default function Admin() {
             .then(data => setProducts(data.data));
     }
 
+    function fetchUsers() {
+        fetch(`${process.env.REACT_APP_API_URL}/user/getUsers`, {
+            headers: {
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
+            }
+        })
+            .then(response => response.json())
+            .then(data => setUsers(data.data));
+    }
+
     useEffect(() => {
         fetchProducts();
+        fetchUsers();
     }, []);
 
 
@@ -412,7 +424,44 @@ export default function Admin() {
                                     </Table>
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="fifth">
-                                    <h6>Total Active Products: {products.filter(e => !e.isArchived).length}</h6>
+                                    <Table responsive>
+                                        <thead>
+                                            <tr>
+                                                <th>User Id</th>
+                                                <th>User Name</th>
+                                                <th>Email Address</th>
+                                                <th>Mobile Number</th>
+                                                <th>User Status</th>
+                                                <th>User Cart</th>
+                                                <th>User Orders</th>
+                                                <th>Address</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {
+                                                users.map(e => {
+                                                    return (
+                                                        <tr key={e._id}>
+                                                            <td>{e._id}</td>
+                                                            <td>{e.fullName}</td>
+                                                            <td>{e.emailAddress}</td>
+                                                            <td>{e.mobileNumber}</td>
+                                                            <td>{e.isAdmin ? "Admin" : "User"}</td>
+                                                            <td>{e.userCart.length}</td>
+                                                            <td>{e.userOrders.length}</td>
+                                                            <td>{
+                                                                e.addresses.length > 0
+                                                                    ?
+                                                                    `${e.addresses[0].street} ${e.addresses[0].city} ${e.addresses[0].state} ${e.addresses[0].country} ${e.addresses[0].zip}`
+                                                                    :
+                                                                    "No Address"
+                                                            }</td>
+                                                        </tr>
+                                                    )
+                                                })
+                                            }
+                                        </tbody>
+                                    </Table>
                                 </Tab.Pane>
                             </Tab.Content>
                         </Col>

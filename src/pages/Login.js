@@ -43,7 +43,6 @@ export default function Login() {
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         setUser({
           id: data.userProfile._id,
           isAdmin: data.userProfile.isAdmin
@@ -67,8 +66,6 @@ export default function Login() {
       .then(data => {
         let timerInterval;
         if (data.accessToken !== undefined) {
-          console.log(data.accessToken);
-          console.log(data);
           localStorage.setItem("token", data.accessToken);
           retrieveUserDetails(data.accessToken);
           Swal.fire({

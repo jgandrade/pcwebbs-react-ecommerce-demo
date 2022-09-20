@@ -3,21 +3,41 @@ import '../styles/productCard.css';
 import Swal from 'sweetalert2';
 
 export default function ProductCard(props) {
+
     function addToCart() {
-        console.log("Working");
-        console.log(localStorage.getItem("token"));
         if (localStorage.getItem("token") === null) {
             Swal.fire({
                 title: "Login First To Add Cart!",
                 icon: "error",
                 text: "Please login senpai."
             })
+        } else {
+            fetch(`${process.env.REACT_APP_API_URL}/user/addToCart`, {
+                method: "POST",
+                headers: {
+                    "Authorization": `Bearer ${localStorage.getItem("token")}`,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    productId: props._id,
+                    quantity: 1
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    Swal.fire({
+                        title: "Successfully added to Cart!",
+                        icon: "success",
+                        text: "If the same product id exists in your cart, your cart quantity will only update."
+                    })
+                });
+
         }
     }
 
     return (
         <div className="card">
-            <img src={props.img} alt={`${props.productName}`}/>
+            <img src={props.img} alt={`${props.productName}`} />
             <div className="travel-name">
                 <h6>{props.productName}</h6>
             </div>

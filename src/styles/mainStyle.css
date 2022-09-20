@@ -1,0 +1,231 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Press Start 2P";
+  letter-spacing: -0.1em;
+}
+
+.no-border {
+  border: 0 !important;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+nav {
+  width: 100%;
+  background-color: #a83b3b;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 55px;
+  padding: 0em 2em;
+}
+nav .search-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 33%;
+}
+nav .logo {
+  font-size: 1.2em;
+  width: 33%;
+  text-align: center;
+}
+nav .logo a {
+  color: #ffffff;
+  text-shadow: 1px 5px 5px rgb(44, 43, 43);
+  text-decoration: none;
+}
+nav .menu-icon {
+  font-size: 1.6em;
+}
+nav .nav-btn-container-open {
+  display: flex;
+}
+nav .nav-btn-container-close {
+  display: none;
+}
+nav .search-bar {
+  border: none;
+  padding: 0.8em 1em 0.8em 1em;
+  border-radius: 0.5em;
+  color: #494848;
+  font-size: 0.7em;
+  width: 300px;
+  transition: all 0.3s cubic-bezier(0.87, -0.41, 0.19, 1.44);
+  outline: none;
+}
+nav .nav-btn-container {
+  width: 33%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: #903232;
+  width: 100%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  padding: 1em 0em;
+  top: 55px;
+  -webkit-animation: slideIn 0.3s forwards cubic-bezier(0.87, -0.41, 0.19, 1);
+          animation: slideIn 0.3s forwards cubic-bezier(0.87, -0.41, 0.19, 1);
+}
+@-webkit-keyframes slideIn {
+  from {
+    left: 900px;
+  }
+  to {
+    left: 0;
+  }
+}
+@keyframes slideIn {
+  from {
+    left: 900px;
+  }
+  to {
+    left: 0;
+  }
+}
+nav .nav-btn-container .search-bar {
+  width: 200px;
+}
+nav .nav-btn-container .nav-btn {
+  border: none;
+  margin: 1em 0em;
+  background-color: #903232;
+  color: white;
+  font-size: 0.7em;
+  position: relative;
+}
+nav .nav-btn-container .nav-btn:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #fdfeff;
+  transform-origin: bottom right;
+  transition: transform 0.18s ease-in-out;
+}
+nav .nav-btn-container .nav-btn:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+nav .search-bar:focus {
+  width: 500px;
+  border-radius: 5em;
+}
+nav .search-icon {
+  cursor: pointer;
+}
+nav .search-form-close-out {
+  display: none;
+}
+nav ul {
+  text-decoration: none;
+  list-style: none;
+}
+
+@media only screen and (min-width: 850px) {
+  .menu-btn {
+    display: none;
+  }
+  nav {
+    width: 100%;
+    background-color: #a83b3b;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 55px;
+    padding: 0em 2em;
+  }
+  nav .search-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+  }
+  nav .search-form-close-in {
+    display: none;
+  }
+  nav .logo {
+    font-size: 1.2em;
+    width: 20%;
+  }
+  nav .logo a {
+    color: #ffffff;
+    text-shadow: 1px 5px 5px rgb(44, 43, 43);
+    text-decoration: none;
+  }
+  nav .menu-icon {
+    font-size: 1.6em;
+  }
+  nav .nav-btn-container {
+    background-color: #a83b3b;
+    padding: 0;
+  }
+  nav .nav-btn-container .nav-btn {
+    border: none;
+    background-color: #a83b3b;
+    color: white;
+    font-size: 0.7em;
+    position: relative;
+  }
+  nav .nav-btn:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #fdfeff;
+    transform-origin: bottom right;
+    transition: transform 0.18s ease-in-out;
+  }
+  nav .nav-btn:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  nav .nav-btn-container {
+    width: 30%;
+    display: flex;
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  nav .search-bar {
+    border: none;
+    padding: 0.8em 1em 0.8em 1em;
+    border-radius: 0.5em;
+    color: #494848;
+    font-size: 0.7em;
+    width: 300px;
+    transition: all 0.3s cubic-bezier(0.87, -0.41, 0.19, 1.44);
+    outline: none;
+  }
+  nav .search-bar:focus {
+    width: 500px;
+    border-radius: 5em;
+  }
+  nav .search-icon {
+    cursor: pointer;
+  }
+  nav ul {
+    text-decoration: none;
+    list-style: none;
+  }
+}/*# sourceMappingURL=mainStyle.css.map */

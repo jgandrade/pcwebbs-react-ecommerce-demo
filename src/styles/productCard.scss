@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Orbitron:wght@400;500;600;700&family=Oswald:wght@400;600;700&family=Poppins:wght@400;500;600;700&family=Press+Start+2P&family=Quicksand:wght@400;500;600;700&display=swap");
+
+.card * {
+    font-family: "Oswald";
+    font-size: 1.3em;
+}
+
+.card {
+    margin: 3em 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 230px;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+    background-color: white;
+    font-size: 0.8em;
+    border-radius: 0.5em;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.card img ~ * {
+    padding: 0 1.2em;
+}
+
+.card img + div {
+    display: flex;
+    flex-direction: row;
+    align-self: flex-start;
+    color: #034c5a;
+    margin-top: 0.6em;
+}
+
+.card img + div h3 + h3 {
+    margin-left: 0.5em;
+    font-weight: 400;
+    color: gray;
+}
+
+.card img + div + p {
+    padding: 0.7em 1.8em;
+    font-size: 0.7em;
+    color: #222222;
+}
+
+.card p + div {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+}
+
+.card p + div p {
+    font-size: 0.7em;
+    color: gray;
+}
+
+.card p + div div {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    font-size: 1em;
+}
+
+.card p + div div p {
+    border-radius: 5em;
+    color: #2e3755;
+    background-color: #e4f1f1;
+    padding: 0.1em 0.3em;
+    margin: 0.3em;
+    font-weight: 500;
+}
+
+.card a {
+    text-decoration: none;
+    margin: 1em 0;
+}
+
+.card button {
+    border: none;
+    padding: 0em 1em;
+    border-radius: 0.5em;
+    background-color: #903232;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+}

@@ -1,0 +1,23 @@
+.admin * {
+  font-family: monospace !important;
+}
+
+.modal-content * {
+  font-family: monospace !important;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: white !important;
+  background-color: lightcoral !important;
+  font-weight: bold !important;
+}
+
+.nav-link {
+  color: #222222 !important;
+  font-weight: bold !important;
+}
+
+.nav-admin-fixed {
+  position: fixed !important;
+}/*# sourceMappingURL=adminStyle.css.map */

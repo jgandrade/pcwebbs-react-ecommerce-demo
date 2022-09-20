@@ -97,7 +97,7 @@ export default function Cart() {
               )
             })
             :
-            <p>Nothing in your cart yet.</p>
+            <p>Nothing in your orders yet.</p>
           :
           <></>
       }

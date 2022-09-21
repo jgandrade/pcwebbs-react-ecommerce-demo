@@ -56,7 +56,6 @@ export default function Home() {
     return setProducts(newArray);
   };
 
-
   return (
     !user.isAdmin
       ?

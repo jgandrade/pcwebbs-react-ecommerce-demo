@@ -58,7 +58,7 @@ export default function Cart() {
       })
         .then(response => response.json())
         .then(data => {
-          getProfile();
+          
           if (data.message !== undefined) {
             Swal.fire({
               title: "Add something to your cart before checking out!",
@@ -73,6 +73,7 @@ export default function Cart() {
                 icon: "error",
                 text: "You can check your cart quantity it might be bigger than the current stock of the product."
               })
+              getProfile();
               handleClose();
             } else {
               Swal.fire({
@@ -80,6 +81,7 @@ export default function Cart() {
                 icon: "success",
                 text: "You can check your orders for more details about your checkout."
               })
+              getProfile();
               handleClose();
             }
           }

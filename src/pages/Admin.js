@@ -71,7 +71,6 @@ export default function Admin() {
         fetchUsers();
     }, []);
 
-
     function archiveProduct(id) {
         fetch(`${process.env.REACT_APP_API_URL}/product/archiveProduct`, {
             method: "PATCH",
@@ -134,6 +133,38 @@ export default function Admin() {
                         icon: "error",
                         text: "Please try again"
                     })
+                }
+            })
+    }
+
+
+    function deleteProduct(id) {
+        fetch(`${process.env.REACT_APP_API_URL}/product/remove`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
+            },
+            body: JSON.stringify({
+                _id: id
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.response === true) {
+                    Swal.fire({
+                        title: "Successfully Removed the Product!",
+                        icon: "success",
+                        text: "Product removed"
+                    })
+                    fetchProducts();
+                } else {
+                    Swal.fire({
+                        title: "Product Removal Unsuccessful!",
+                        icon: "error",
+                        text: "Product Not Removed"
+                    })
+                    fetchProducts();
                 }
             })
     }
@@ -226,6 +257,8 @@ export default function Admin() {
                     </Modal.Body>
                 </Modal>
 
+
+
                 <Tab.Container defaultActiveKey="first">
                     <Row>
                         <Col sm={3}>
@@ -276,6 +309,7 @@ export default function Admin() {
                                                             <td>{e.isArchived ? "Inactive" : "Active"}</td>
                                                             <td>
                                                                 <Button onClick={() => { setShow(true); setViewProduct({ ...e }) }} variant="outlined" color="error">View</Button>
+                                                                <Button onClick={() => deleteProduct(e._id)} variant="outlined" color="error">Delete</Button>
                                                             </td>
                                                         </tr>
                                                     )

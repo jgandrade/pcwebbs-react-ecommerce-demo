@@ -9,7 +9,7 @@ export default function Hero() {
                     <p className="lead fw-normal" data-aos="zoom-out-down" data-aos-delay="200">Your one stop shop for old and new computers! </p>
                     <a className="btn btn-outline-secondary" href="#products" data-aos="zoom-out-down" data-aos-delay="300">See Products</a>
                 </div>
-                <img className="col-md-4 d-none d-md-block" src="https://media.giphy.com/avatars/danielfigueirdo/mR5uHXLuePGT.gif" data-aos="zoom-out-down" data-aos-delay="700" alt="mario"/>
+                <img className="col-md-4 d-none d-md-block" src="https://media.giphy.com/avatars/danielfigueirdo/mR5uHXLuePGT.gif" data-aos="zoom-out-down" data-aos-delay="700" alt="mario" />
             </div>
 
             <div className="row text-center my-5">

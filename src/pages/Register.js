@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import { useState, useEffect } from 'react';
 import { useContext } from 'react';
 import userContext from '../contexts/userContext';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate, Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 export default function Register() {
@@ -181,6 +181,9 @@ export default function Register() {
               </Button>
             </div>
           </Form>
+        </div>
+        <div className='text-center'>
+          <p>Already a member? <Link to="/login">Login Here</Link></p>
         </div>
       </>
       :

@@ -8,7 +8,7 @@ export default function Pagination({ productsPerPage, totalProducts, setCurrentP
 
     return (
         <div key={`${keyPage}`} className='col-12'>
-            <ul className='pagination d-flex justify-content-center align-items-center'>
+            <ul className='pagination d-flex justify-content-center align-items-center flex-wrap'>
                 {pageNumbers.map((e, i) => {
                     return (
                         <>

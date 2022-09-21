@@ -70,7 +70,7 @@ export default function ProductPage() {
     }
 
     return (
-        <div className='my-5 mx-5 d-flex flex-column justify-content-center align-items-center    '>
+        <div className='my-5 mx-5 d-flex flex-column justify-content-center align-items-center'>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Enter Quantity To Add Cart</Modal.Title>
@@ -104,8 +104,8 @@ export default function ProductPage() {
                 products.map(e => {
                     if (e.slug === product) {
                         return (
-                            <div key={e} className="d-flex flex-md-row flex-column">
-                                <img src={e.img} alt={e.slug} className="img-fluid w-100" />
+                            <div key={e} className="d-flex justify-content-start align-items-center flex-md-row flex-column product-page-details">
+                                <img src={e.img} alt={e.slug} className="img-fluid w-100" style={{ minWidth: "250px", maxWidth: "500px" }} />
                                 <div>
                                     <h5>{e.productName}</h5>
                                     <p>{e.productDescription}</p>

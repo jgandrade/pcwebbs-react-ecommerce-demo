@@ -24,9 +24,38 @@ export default function Home() {
       });
   }, []);
 
+  function getProducts() {
+    fetch(`${process.env.REACT_APP_API_URL}/product/lists`)
+      .then(response => response.json())
+      .then(data => {
+        shuffle(data.data);
+      });
+  }
+
+  function getSpecificProduct(category) {
+    fetch(`${process.env.REACT_APP_API_URL}/product/lists`)
+      .then(response => response.json())
+      .then(data => {
+        let dataFetch = data.data.filter(e => e.category.toLowerCase() === category)
+        shuffle(dataFetch);
+      });
+  }
+
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProduct = products.slice(indexOfFirstProduct, indexOfLastProduct);
+
+  //https://www.webmound.com/shuffle-javascript-array/ Fisher-Yates algorithm
+  const shuffle = (array) => {
+    const newArray = [...array];
+    newArray.reverse().forEach((item, index) => {
+      const j = Math.floor(Math.random() * (index + 1));
+      [newArray[index], newArray[j]] = [newArray[j], newArray[index]];
+    });
+
+    return setProducts(newArray);
+  };
+
 
   return (
     !user.isAdmin
@@ -37,33 +66,80 @@ export default function Home() {
             ?
             <>
               <div className='my-5 mx-5'>
-                <h6>Categories:</h6>
                 <div className="d-flex justify-content-center align-items-center my-5 flex-wrap">
-                  <Button className="mx-2" variant="outlined" color="error">Processors</Button>
-                  <Button className="mx-2" variant="outlined" color="error">GPUs</Button>
-                  <Button className="mx-2" variant="outlined" color="error">Memory</Button>
-                  <Button className="mx-2" variant="outlined" color="error">Motherboard</Button>
-                  <Button className="mx-2" variant="outlined" color="error">Chassis</Button>
-                  <Button className="mx-2" variant="outlined" color="error">Monitor</Button>
-                  <Button className="mx-2" variant="outlined" color="error">Peripherals</Button>
-                  <Button className="mx-2" variant="outlined" color="error">Consoles</Button>
+                  <Button className="mx-2 my-2" variant="outlined" color="error" onClick={getProducts}>All</Button>
+                  <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("processor")}>Processors</Button>
+                  <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("gpu")}>GPUs</Button>
+                  <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("memory")}>Memory</Button>
+                  <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("motherboard")}>Motherboard</Button>
+                  <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("chassis")}>Chassis</Button>
+                  <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("monitor")}>Monitor</Button>
+                  <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("peripherals")}>Peripherals</Button>
+                  <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("consoles")}>Consoles</Button>
                 </div>
 
                 <Pagination key="page-top" keyPage="page-top" totalProducts={products.length} productsPerPage={productsPerPage} setCurrentPage={setCurrentPage} />
                 <div id="products" className='d-flex justify-content-around align-items-center flex-wrap'>
-                  <Products products={currentProduct} loading={loading} />
+                  {
+                    products.length > 0
+                      ?
+                      <Products products={currentProduct} loading={loading} />
+                      :
+                      <p>Nothing to display</p>
+                  }
                 </div>
                 <Pagination key="page-bottom" keyPage="page-bottom" totalProducts={products.length} productsPerPage={productsPerPage} setCurrentPage={setCurrentPage} />
+              </div>
+              <div className="d-flex justify-content-center align-items-center my-5 flex-wrap">
+                <Button className="mx-2 my-2" variant="outlined" color="error" onClick={getProducts}>All</Button>
+                <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("processor")}>Processors</Button>
+                <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("gpu")}>GPUs</Button>
+                <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("memory")}>Memory</Button>
+                <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("motherboard")}>Motherboard</Button>
+                <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("chassis")}>Chassis</Button>
+                <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("monitor")}>Monitor</Button>
+                <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("peripherals")}>Peripherals</Button>
+                <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("consoles")}>Consoles</Button>
               </div>
             </>
             :
             <>
               <Hero />
+              <div className="d-flex justify-content-center align-items-center my-5 flex-wrap">
+                <Button className="mx-2 my-2" variant="outlined" color="error" onClick={getProducts}>All</Button>
+                <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("processor")}>Processors</Button>
+                <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("gpu")}>GPUs</Button>
+                <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("memory")}>Memory</Button>
+                <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("motherboard")}>Motherboard</Button>
+                <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("chassis")}>Chassis</Button>
+                <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("monitor")}>Monitor</Button>
+                <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("peripherals")}>Peripherals</Button>
+                <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("consoles")}>Consoles</Button>
+              </div>
               <Pagination key="page-top" keyPage="page-top" totalProducts={products.length} productsPerPage={productsPerPage} setCurrentPage={setCurrentPage} />
               <div id="products" className='d-flex justify-content-around align-items-center flex-wrap'>
-                <Products products={currentProduct} loading={loading} />
+                {
+                  products.length > 0
+                    ?
+                    <Products products={currentProduct} loading={loading} />
+                    :
+                    <>
+                      <p>Nothing to display</p>
+                    </>
+                }
               </div>
               <Pagination key="page-bottom" keyPage="page-bottom" totalProducts={products.length} productsPerPage={productsPerPage} setCurrentPage={setCurrentPage} />
+              <div className="d-flex justify-content-center align-items-center my-5 flex-wrap">
+                <Button className="mx-2 my-2" variant="outlined" color="error" onClick={getProducts}>All</Button>
+                <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("processor")}>Processors</Button>
+                <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("gpu")}>GPUs</Button>
+                <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("memory")}>Memory</Button>
+                <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("motherboard")}>Motherboard</Button>
+                <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("chassis")}>Chassis</Button>
+                <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("monitor")}>Monitor</Button>
+                <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("peripherals")}>Peripherals</Button>
+                <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("consoles")}>Consoles</Button>
+              </div>
             </>
         }
       </>

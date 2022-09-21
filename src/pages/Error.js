@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 export default function Error() {
     let gifs = [
@@ -15,6 +16,7 @@ export default function Error() {
             <div className="justify-content-center align-items-center d-flex flex-column my-5">
                 <p>The page you were looking for doesn't exist</p>
                 <img style={{ minWidth: "200px", maxWidth: "300px" }} src={gifs[gifIndex]} alt="gif" />
+                <Button className="my-3" as={Link} to="/" style={{ textDecoration: "none", color: "white" }} variant="contained" color="error">Click here to redirect to homepage</Button>
             </div>
         </>
     )

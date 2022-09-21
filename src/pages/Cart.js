@@ -200,7 +200,7 @@ export default function Cart() {
                 let image = "";
                 products.forEach(el => el._id === e.productId ? image = el.img : "");
                 return (
-                  <div key={i} className="d-flex flex-column flex-lg-row justify-content-start align-items-center my-5 cart-details-page">
+                  <div key={i} className="d-flex flex-column flex-lg-row justify-content-start align-items-center my-5 cart-details-page" data-aos="flip-right">
                     <img src={image} className="w-25" style={{ minWidth: "200px", maxWidth: "400px" }} alt={e.cartNumber} />
                     <div>
                       <p>Cart Number: {e.cartNumber}</p>

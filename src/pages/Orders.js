@@ -44,7 +44,7 @@ export default function Orders() {
                 products.forEach(el => el._id === e.productId ? image = el.img : "");
 
                 return (
-                  <div key={i} className="d-flex flex-column flex-lg-row justify-content-start align-items-center my-5 orders-details">
+                  <div key={i} className="d-flex flex-column flex-lg-row justify-content-start align-items-center my-5 orders-details" data-aos="flip-left">
                     <img src={image} className="w-25" style={{ minWidth: "200px", maxWidth: "400px" }} alt={e.orderId} />
                     <div>
                       <p>Order Id: {e.orderId}</p>

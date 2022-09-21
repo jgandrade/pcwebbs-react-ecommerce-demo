@@ -115,11 +115,15 @@ export default function Navbar() {
                                     <Offcanvas.Header closeButton>
                                         <Offcanvas.Title>Cart<Badge bg="danger">
                                             {
-                                                userData.userCart !== undefined
+                                                userData !== undefined
                                                     ?
-                                                    userData.userCart.length > 0
+                                                    userData.userCart !== undefined
                                                         ?
-                                                        `${userData.userCart.length}`
+                                                        userData.userCart.length > 0
+                                                            ?
+                                                            `${userData.userCart.length}`
+                                                            :
+                                                            0
                                                         :
                                                         0
                                                     :
@@ -130,27 +134,31 @@ export default function Navbar() {
                                     <Offcanvas.Body className="canvas-css">
                                         <Link to="/cart"><Button variant="outlined" color="error" onClick={handleClose}>Go To Cart</Button></Link>
                                         {
-                                            userData.userCart !== undefined
+                                            userData !== undefined
                                                 ?
-                                                userData.userCart.length > 0
+                                                userData.userCart !== undefined
                                                     ?
-                                                    userData.userCart.map((e, i) => {
-                                                        let image = "";
-                                                        products.forEach(el => el._id === e.productId ? image = el.img : "");
-                                                        return (
-                                                            <div key={i} className="cart-details d-flex flex-column flex-lg-row justify-content-start align-items-center my-2">
-                                                                <img src={image} className="img-fluid w-100" alt={e.cartNumber} />
-                                                                <div>
-                                                                    <p>Cart Number: {e.cartNumber}</p>
-                                                                    <p>Product Name: {e.productName}</p>
-                                                                    <p>Product Quantity Added: {e.quantity}</p>
-                                                                    <p>Total Price: {e.totalPrice}</p>
+                                                    userData.userCart.length > 0
+                                                        ?
+                                                        userData.userCart.map((e, i) => {
+                                                            let image = "";
+                                                            products.forEach(el => el._id === e.productId ? image = el.img : "");
+                                                            return (
+                                                                <div key={i} className="cart-details d-flex flex-column flex-lg-row justify-content-start align-items-center my-2">
+                                                                    <img src={image} className="img-fluid w-100" alt={e.cartNumber} />
+                                                                    <div>
+                                                                        <p>Cart Number: {e.cartNumber}</p>
+                                                                        <p>Product Name: {e.productName}</p>
+                                                                        <p>Product Quantity Added: {e.quantity}</p>
+                                                                        <p>Total Price: {e.totalPrice}</p>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        )
-                                                    })
+                                                            )
+                                                        })
+                                                        :
+                                                        <p>Nothing in your cart yet.</p>
                                                     :
-                                                    <p>Nothing in your cart yet.</p>
+                                                    <></>
                                                 :
                                                 <></>
                                         }

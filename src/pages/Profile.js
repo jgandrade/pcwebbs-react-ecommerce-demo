@@ -98,6 +98,7 @@ export default function Profile() {
     });
 
     function fireSwalSuccess(placeholder) {
+        getProfile();
         return Swal.fire({
             title: "Sucessful!",
             icon: "success",
@@ -140,7 +141,6 @@ export default function Profile() {
             })
                 .then(response => response.json())
                 .then(data => {
-                    getProfile();
                     fireSwalSuccess("profile name");
                     setFormData({
                         email: "",
@@ -169,7 +169,6 @@ export default function Profile() {
             })
                 .then(response => response.json())
                 .then(data => {
-                    getProfile();
                     fireSwalSuccess("email address");
                     setFormData({
                         email: "",
@@ -198,7 +197,7 @@ export default function Profile() {
             })
                 .then(response => response.json())
                 .then(data => {
-                    getProfile();
+
                     fireSwalSuccess("mobile number");
                     setFormData({
                         email: "",
@@ -227,7 +226,7 @@ export default function Profile() {
             })
                 .then(response => response.json())
                 .then(data => {
-                    getProfile();
+
                     fireSwalSuccess("password");
                     setFormData({
                         email: "",

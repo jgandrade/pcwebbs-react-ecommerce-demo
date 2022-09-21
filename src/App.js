@@ -12,6 +12,11 @@ import { UserProvider } from "./contexts/userContext";
 import Account from "./pages/Account";
 import Profile from "./pages/Profile";
 import ProductPage from "./pages/ProductPage"
+import Footer from './components/Footer';
+import SearchPage from './pages/SearchPage';
+import 'aos/dist/aos.css';
+
+
 function App() {
   const [user, setUser] = useState({
     id: null,
@@ -64,9 +69,11 @@ function App() {
               <Route exact path="/account" element={<Account />} />
               <Route exact path="/profile" element={<Profile />} />
               <Route exact path="/product/:product" element={<ProductPage />} />
+              <Route exact path="/search/:search" element={<SearchPage />} />
               <Route path="*" element={<Error />} />
             </Routes>
           </div>
+          <Footer />
         </Router>
       </div>
     </UserProvider>

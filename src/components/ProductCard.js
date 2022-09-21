@@ -37,7 +37,7 @@ export default function ProductCard(props) {
 
 
     return (
-        <div className="card">
+        <div className="card" data-aos="zoom-in" data-aos-delay={props.load * 50}>
             <Link to={`/product/${props.slug}`}><img src={props.img} alt={`${props.productName}`} /></Link>
             <div className="travel-name">
                 <h6 >{props.productName}</h6>

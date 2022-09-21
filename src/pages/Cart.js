@@ -35,7 +35,8 @@ export default function Cart() {
         .then(response => response.json())
         .then(data => {
           console.log(data);
-          if (data.message.includes("Add something")) {
+          getProfile();
+          if (data.message!==undefined) {
             Swal.fire({
               title: "Add something to your cart before checking out!",
               icon: "error",
@@ -43,12 +44,14 @@ export default function Cart() {
             })
             handleClose();
           } else {
-            Swal.fire({
-              title: "Checkout Successful!",
-              icon: "success",
-              text: "You can check your orders for more details about your checkout."
-            })
-            handleClose();
+            if (data.success.length > 0) {
+              Swal.fire({
+                title: "Checkout Successful!",
+                icon: "success",
+                text: "You can check your orders for more details about your checkout."
+              })
+              handleClose();
+            }
           }
         })
 

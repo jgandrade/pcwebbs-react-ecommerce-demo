@@ -11,7 +11,7 @@ import Orders from "./pages/Orders";
 import { UserProvider } from "./contexts/userContext";
 import Account from "./pages/Account";
 import Profile from "./pages/Profile";
-
+import ProductPage from "./pages/ProductPage"
 function App() {
   const [user, setUser] = useState({
     id: null,
@@ -63,6 +63,7 @@ function App() {
               <Route exact path="/orders" element={<Orders />} />
               <Route exact path="/account" element={<Account />} />
               <Route exact path="/profile" element={<Profile />} />
+              <Route exact path="/product/:product" element={<ProductPage />} />
               <Route path="*" element={<Error />} />
             </Routes>
           </div>

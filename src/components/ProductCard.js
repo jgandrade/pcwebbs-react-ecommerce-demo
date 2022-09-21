@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/productCard.css';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 export default function ProductCard(props) {
 
@@ -31,15 +32,15 @@ export default function ProductCard(props) {
                         text: "If the same product id exists in your cart, your cart quantity will only update."
                     })
                 });
-
         }
     }
 
+
     return (
         <div className="card">
-            <img src={props.img} alt={`${props.productName}`} />
+            <Link to={`/product/${props.slug}`}><img src={props.img} alt={`${props.productName}`} /></Link>
             <div className="travel-name">
-                <h6>{props.productName}</h6>
+                <h6 >{props.productName}</h6>
             </div>
             <div className='my-2 d-flex align-items-center justify-content-center'>
                 <button className='mx-1 product-buttons' onClick={addToCart}>Buy Now</button>

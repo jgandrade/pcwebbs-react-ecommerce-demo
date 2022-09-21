@@ -58,7 +58,7 @@ export default function Cart() {
       })
         .then(response => response.json())
         .then(data => {
-          
+
           if (data.message !== undefined) {
             Swal.fire({
               title: "Add something to your cart before checking out!",
@@ -189,7 +189,7 @@ export default function Cart() {
             </Button>
           </Modal.Footer>
         </Modal>
-        <p>Cart:</p>
+        <p className='my-5'>Welcome to your Cart</p>
         <Button variant="contained" color="error" onClick={handleShow}>Checkout</Button>
         {
           userData.userCart !== undefined

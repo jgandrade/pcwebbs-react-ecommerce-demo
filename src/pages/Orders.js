@@ -33,7 +33,7 @@ export default function Orders() {
     !user.isAdmin && localStorage.getItem("token") != null
       ?
       <div className='my-5 mx-3'>
-        <p>Orders:</p>
+        <p>Welcome to your Orders History</p>
         {
           userData.userOrders !== undefined
             ?

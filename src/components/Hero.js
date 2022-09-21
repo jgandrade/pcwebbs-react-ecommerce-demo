@@ -19,7 +19,7 @@ export default function Hero() {
                     </div>
                     <h4 className="fw-normal">NFT Payment</h4>
                     <p>We accept NFT Payments here. It's already 2022 and NFT will be the next big thing.</p>
-                    <p><a className="btn btn-secondary" href="#">View details »</a></p>
+                    
                 </div>
                 <div className="col-md-4 d-flex flex-column align-items-center justify-content-between" data-aos="zoom-in" data-aos-delay="600">
                     <div className="ratio ratio-1x1 w-50 rounded-circle overflow-hidden">
@@ -27,7 +27,7 @@ export default function Hero() {
                     </div>
                     <h4 className="fw-normal">Free Consult</h4>
                     <p>Some of our products here are really expensive, so we give consultation for free.</p>
-                    <p><a className="btn btn-secondary" href="#">View details »</a></p>
+                    
                 </div>
                 <div className="col-md-4 d-flex flex-column align-items-center justify-content-between" data-aos="zoom-in" data-aos-delay="900">
                     <div className="ratio ratio-1x1 w-50 rounded-circle overflow-hidden">
@@ -35,7 +35,7 @@ export default function Hero() {
                     </div>
                     <h4 className="fw-normal">Sales and Discounts</h4>
                     <p>Every month we have an exciting discounts and sudden price sales. You don't want to miss that out</p>
-                    <p><a className="btn btn-secondary" href="#">View details »</a></p>
+                    
                 </div>
             </div>
         </>

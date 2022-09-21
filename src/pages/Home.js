@@ -64,6 +64,7 @@ export default function Home() {
           localStorage.getItem("token") !== null
             ?
             <>
+              
               <div className='my-5 mx-5'>
                 <div className="d-flex justify-content-center align-items-center my-5 flex-wrap">
                   <Button className="mx-2 my-2" variant="outlined" color="error" onClick={getProducts}>All</Button>

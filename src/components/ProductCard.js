@@ -39,11 +39,11 @@ export default function ProductCard(props) {
     return (
         <div className="card" data-aos="zoom-in" data-aos-delay={props.load * 50}>
             <Link to={`/product/${props.slug}`}><img src={props.img} alt={`${props.productName}`} /></Link>
-            <div className="travel-name">
-                <h6 >{props.productName}</h6>
+            <div className="product-name">
+                <Link to={`/product/${props.slug}`}>{props.productName}</Link>
+                <h6>₱{props.productPrice}</h6>
             </div>
             <div className='my-2 d-flex align-items-center justify-content-center'>
-                <button className='mx-1 product-buttons' onClick={addToCart}>Buy Now</button>
                 <button className='mx-1 product-buttons' onClick={addToCart}>Add to Cart</button>
             </div>
         </div>

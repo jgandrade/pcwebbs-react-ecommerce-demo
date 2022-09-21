@@ -110,77 +110,79 @@ export default function Register() {
   return (
     user.id === null
       ?
-      < div className='my-5' >
-        <h3 className='my-5 text-center'>Register</h3>
-        <Form className="d-flex flex-column" onSubmit={registerUser}>
-          <Form.Group className="mb-3" controlId="fullName">
-            <Form.Label>Full Name</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter Full Name"
-              name="fullName"
-              value={formData.fullName}
-              onChange={handleChange}
-              required
-            />
-            <Form.Text className="text-muted">
-              We'll never share your name with anyone else.
-            </Form.Text>
-          </Form.Group>
+      <>
+        <div className='my-5'>
+          <h3 className='my-5 text-center'>Register</h3>
+          <Form className="d-flex flex-column" onSubmit={registerUser}>
+            <Form.Group className="mb-3" controlId="fullName">
+              <Form.Label>Full Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Full Name"
+                name="fullName"
+                value={formData.fullName}
+                onChange={handleChange}
+                required
+              />
+              <Form.Text className="text-muted">
+                We'll never share your name with anyone else.
+              </Form.Text>
+            </Form.Group>
 
-          <Form.Group className="mb-3" controlId="email">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email"
-              placeholder="Enter email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
-          </Form.Group>
+            <Form.Group className="mb-3" controlId="email">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="email"
+                placeholder="Enter email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required />
+              <Form.Text className="text-muted">
+                We'll never share your email with anyone else.
+              </Form.Text>
+            </Form.Group>
 
-          <Form.Group className="mb-3" controlId="mobileNumber">
-            <Form.Label>Mobile Number</Form.Label>
-            <Form.Control type="text" placeholder="+63<10 digit number> or 0<10 digit number>"
-              name="mobileNo"
-              value={formData.mobileNo}
-              onChange={handleChange}
-              required />
-          </Form.Group>
+            <Form.Group className="mb-3" controlId="mobileNumber">
+              <Form.Label>Mobile Number</Form.Label>
+              <Form.Control type="text" placeholder="+63<10 digit number> or 0<10 digit number>"
+                name="mobileNo"
+                value={formData.mobileNo}
+                onChange={handleChange}
+                required />
+            </Form.Group>
 
-          <Form.Group className="mb-3" controlId="password">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Enter Password" name="password1"
-              value={formData.password1}
-              onChange={handleChange} required />
-          </Form.Group>
+            <Form.Group className="mb-3" controlId="password">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" placeholder="Enter Password" name="password1"
+                value={formData.password1}
+                onChange={handleChange} required />
+            </Form.Group>
 
-          <Form.Group className="mb-3" controlId="password2">
-            <Form.Label>Verify Password</Form.Label>
-            <Form.Control type="password" placeholder="Re-enter Password" name="password2"
-              value={formData.password2}
-              onChange={handleChange} required />
-          </Form.Group>
-          {
-            errors.length > 0
-              ?
-              <div className='text-center'>
-                {errors.map((e, i) => {
-                  return <p style={{ color: "red" }} key={`error-${i}`}>{e.message}</p>
-                })}
-              </div>
-              :
-              false
-          }
-          <div className="text-center">
-            <Button variant={isActive ? "success" : "danger"} type="submit" id="submitBtn" className="col-2" disabled={!isActive}>
-              Register
-            </Button>
-          </div>
-        </Form>
-      </div >
+            <Form.Group className="mb-3" controlId="password2">
+              <Form.Label>Verify Password</Form.Label>
+              <Form.Control type="password" placeholder="Re-enter Password" name="password2"
+                value={formData.password2}
+                onChange={handleChange} required />
+            </Form.Group>
+            {
+              errors.length > 0
+                ?
+                <div className='text-center'>
+                  {errors.map((e, i) => {
+                    return <p style={{ color: "red" }} key={`error-${i}`}>{e.message}</p>
+                  })}
+                </div>
+                :
+                false
+            }
+            <div className="text-center">
+              <Button variant={isActive ? "success" : "danger"} type="submit" id="submitBtn" className="col-2" disabled={!isActive}>
+                Register
+              </Button>
+            </div>
+          </Form>
+        </div>
+      </>
       :
       <Navigate to="/login" />
   )

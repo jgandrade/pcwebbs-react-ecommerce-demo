@@ -285,9 +285,9 @@ export default function Profile() {
     }, [formData, formData2]);
 
     return (
-        !user.isAdmin
+        !user.isAdmin && localStorage.getItem("token") != null
             ?
-            <div className='my-5'>
+            <div className='my-5 profile-details'>
                 <Modal show={show.response} onHide={handleClose}>
                     <Modal.Header closeButton>
                         <Modal.Title>Change {show.placeholder}</Modal.Title>

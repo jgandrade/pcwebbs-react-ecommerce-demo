@@ -10,21 +10,36 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 230px;
+  width: 300px;
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
-  background-color: white;
+  background-color: white !important;
   font-size: 0.8em;
   border-radius: 0.5em;
   overflow: hidden;
+}
+
+.card a {
+  text-decoration: none;
+  color: #222222;
+  transition: all 0.1s ease-in-out;
+}
+
+.card a:hover {
+  color: #903232;
 }
 
 .card img {
   width: 100%;
   height: 200px;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
+  transition: all 0.1s ease-in-out;
+}
+
+.card img:hover {
+  scale: 1.2;
 }
 
 .card img ~ * {
@@ -85,10 +100,19 @@
 
 .card button {
   border: none;
-  padding: 0em 1em;
-  border-radius: 0.5em;
+  padding: 1em 1em;
+  border-radius: 5em;
   background-color: #903232;
   color: white;
   font-size: 1em;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card button:hover {
+  transform: scale(1.2);
+}
+
+.product-name {
+  padding: 0em 1em;
 }/*# sourceMappingURL=productCard.css.map */

@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import userContext from '../contexts/userContext';
 import Swal from "sweetalert2";
-import { Navigate } from 'react-router-dom';
+import { Navigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 export default function Login() {
@@ -135,6 +135,9 @@ export default function Login() {
             </Button>
           </div>
         </Form>
+        <div className='text-center'>
+          <p>Not a member? <Link to="/register">Register Here</Link></p>
+        </div>
       </>
   )
 }

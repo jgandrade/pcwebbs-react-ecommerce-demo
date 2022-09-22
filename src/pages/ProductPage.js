@@ -95,7 +95,7 @@ export default function ProductPage() {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={addToCart}>
+                    <Button variant="primary" disabled={quantity <= 0 ? true : false} onClick={addToCart}>
                         Add To Cart
                     </Button>
                 </Modal.Footer>

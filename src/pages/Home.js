@@ -25,19 +25,23 @@ export default function Home() {
   }, []);
 
   function getProducts() {
+    setLoading(true);
     fetch(`${process.env.REACT_APP_API_URL}/product/lists`)
       .then(response => response.json())
       .then(data => {
         shuffle(data.data);
+        setLoading(false);
       });
   }
 
   function getSpecificProduct(category) {
+    setLoading(true);
     fetch(`${process.env.REACT_APP_API_URL}/product/lists`)
       .then(response => response.json())
       .then(data => {
         let dataFetch = data.data.filter(e => e.category.toLowerCase() === category)
         shuffle(dataFetch);
+        setLoading(false);
       });
   }
 
@@ -65,8 +69,8 @@ export default function Home() {
             ?
             <>
               <div className='my-5 mx-5'>
-              <h3 className="text-center">pcwebbs</h3>
-              <p className="text-center">Your one stop shop for new and old computers</p>
+                <h3 className="text-center">pcwebbs</h3>
+                <p className="text-center">Your one stop shop for new and old computers</p>
                 <div className="d-flex justify-content-center align-items-center my-5 flex-wrap">
                   <Button className="mx-2 my-2" variant="outlined" color="error" onClick={getProducts}>All</Button>
                   <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("processor")}>Processors</Button>

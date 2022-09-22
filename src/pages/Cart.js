@@ -184,7 +184,7 @@ export default function Cart() {
             <Button variant="secondary" onClick={handleClose2}>
               Close
             </Button>
-            <Button variant="primary" onClick={() => editQuantity(chosenCart)}>
+            <Button variant="primary" disabled={quantity <= 0 ? true : false} onClick={() => editQuantity(chosenCart)}>
               Confirm
             </Button>
           </Modal.Footer>

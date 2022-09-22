@@ -64,8 +64,9 @@ export default function Home() {
           localStorage.getItem("token") !== null
             ?
             <>
-              
               <div className='my-5 mx-5'>
+              <h3 className="text-center">pcwebbs</h3>
+              <p className="text-center">Your one stop shop for new and old computers</p>
                 <div className="d-flex justify-content-center align-items-center my-5 flex-wrap">
                   <Button className="mx-2 my-2" variant="outlined" color="error" onClick={getProducts}>All</Button>
                   <Button className="mx-2 my-2" variant="outlined" color="error" onClick={() => getSpecificProduct("processor")}>Processors</Button>
